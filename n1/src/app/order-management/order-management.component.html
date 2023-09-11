@@ -1,0 +1,13 @@
+<div>
+  <h2>Заказы доставки</h2>
+  <div>
+    <label>Дата: </label>
+    <input type="date" [(ngModel)]="newOrder.date">
+    <label>Название товара: </label>
+    <input type="text" [(ngModel)]="newOrder.productName">
+    <button (click)="addOrder()">Добавить заказ</button>
+  </div>
+  <div *ngFor="let order of orders" [ngClass]="{'weekend': isWeekend(order.date)}">
+    <span [ngStyle]="{'color': isWeekend(order.date) ? 'red' : 'black'}">{{ order.date | date }} - {{ order.productName }}</span>
+  </div>
+</div>
